@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EEF5FA"/>
+      <stop offset="100%" stop-color="#D9EAF3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="95" fill="#FFFFFF" opacity="0.6"/>
+  <!-- alça -->
+  <path d="M180 100 v-14 a20 20 0 0 1 40 0 v14" fill="none" stroke="#1E4E6B" stroke-width="8" stroke-linecap="round"/>
+  <!-- corpo da mala -->
+  <rect x="140" y="100" width="120" height="95" rx="14" fill="#62A3C3"/>
+  <rect x="140" y="100" width="120" height="95" rx="14" fill="none" stroke="#4589AA" stroke-width="4"/>
+  <line x1="200" y1="100" x2="200" y2="195" stroke="#4589AA" stroke-width="4"/>
+  <rect x="184" y="140" width="32" height="14" rx="4" fill="#EEF5FA"/>
+  <!-- rodinhas -->
+  <circle cx="155" cy="200" r="7" fill="#1E4E6B"/>
+  <circle cx="245" cy="200" r="7" fill="#1E4E6B"/>
+</svg>

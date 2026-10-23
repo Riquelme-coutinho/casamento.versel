@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EEF5FA"/>
+      <stop offset="100%" stop-color="#D9EAF3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="95" fill="#FFFFFF" opacity="0.6"/>
+  <!-- pedras empilhadas -->
+  <ellipse cx="200" cy="185" rx="38" ry="12" fill="#4589AA"/>
+  <ellipse cx="200" cy="163" rx="30" ry="10" fill="#62A3C3"/>
+  <ellipse cx="200" cy="143" rx="22" ry="8" fill="#89BAD2"/>
+  <!-- folha -->
+  <path d="M200 125 q-24 -10 -18 -36 q26 2 30 26 q4 -20 26 -24 q4 24 -14 34 z" fill="#93A052"/>
+</svg>
