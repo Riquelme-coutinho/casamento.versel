@@ -1,0 +1,4 @@
+# Segredos e arquivos de teste locais - nunca enviar
+.env
+confirmacoes-local.json
+planilha/Codigo.gs

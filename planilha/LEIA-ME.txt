@@ -1,0 +1,51 @@
+COMO LIGAR AS CONFIRMAÇÕES À PLANILHA DO GOOGLE
+================================================
+Feito para a planilha "confirmação", com as abas "Lista de Convidados" e "Confirmações".
+As colunas são encontradas pelo título do cabeçalho (Código Convite, Convidado / Família,
+Qtd. Prevista, Status, Qtd. Confirmada / Data, Nome Completo, Acompanhantes, Adultos,
+Crianças, Total de Pessoas, Mensagem aos Noivos). Não renomeie esses títulos.
+
+1) COLAR O CÓDIGO
+   - Na planilha: Extensões > Apps Script.
+   - Apague o que estiver lá e cole TODO o conteúdo do arquivo Codigo.gs (desta pasta).
+   - Na linha  const TOKEN = '...';  use uma senha sua, inventada (ex.: casamento-cg-2027-x8k2p).
+     Ela vai igualzinha na Vercel no passo 4.
+   - Clique em Salvar (ícone de disquete).
+
+2) LIMPAR OS EXEMPLOS (só uma vez)
+   - No editor do Apps Script, escolha a função "prepararPlanilha" no menu ao lado de "Executar"
+     e clique em Executar. Autorize com a conta dos noivos
+     (se aparecer "O Google não verificou este app": Avançado > Acessar ... (não seguro) — é o seu próprio script).
+   - Isso apaga os 10 convidados de exemplo do Gemini e as confirmações de exemplo,
+     mantendo cores, painel e menu de Status, e faz as fórmulas do painel valerem até a linha 1000.
+   - Os 39 convites reais entram sozinhos na Lista na primeira vez que alguém buscar um nome no site.
+
+3) PUBLICAR
+   - Clique em Implantar > Nova implantação.
+   - Em "Selecionar tipo" (engrenagem), escolha "App da Web".
+   - Executar como: Eu.   Quem pode acessar: Qualquer pessoa.
+   - Clique em Implantar e copie a "URL do app da Web" (termina em /exec).
+
+4) CONFIGURAR NA VERCEL
+   - No projeto na Vercel: Settings > Environment Variables. Crie duas:
+       GOOGLE_SCRIPT_URL  =  a URL copiada no passo 3
+       PLANILHA_TOKEN     =  a senha do passo 1
+   - Depois faça um novo deploy (Deployments > ... > Redeploy) para valer.
+
+5) ACOMPANHAR
+   - Lista de Convidados: cada convite com Status "Aguardando" ou "Confirmado" e o painel no topo.
+     Categoria, Telefone e Mesa são de vocês: o site nunca mexe nessas colunas.
+   - Confirmações: data/hora, nomes, crianças, total de pessoas e o recado deixado no site.
+   - Para "desfazer" uma confirmação: mude o Status para "Aguardando" na Lista de Convidados
+     (a pessoa volta a aparecer na busca do site em até 15 segundos).
+   - "Recusado" pode ser marcado à mão pelos noivos; quem está "Recusado" ainda consegue confirmar pelo site.
+
+OBSERVAÇÕES
+   - Se mudar o código depois, use Implantar > Gerenciar implantações > editar (lápis) > Nova versão,
+     para a URL continuar a mesma.
+   - Novos convidados: inclua em api/_convidados.js com o próximo código (CONV-040...). Eles entram
+     sozinhos no fim da Lista de Convidados.
+   - Testar no computador sem planilha: as confirmações vão para o arquivo confirmacoes-local.json.
+     Para testar no computador JÁ ligado à planilha, crie um arquivo .env na pasta do projeto com:
+       GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/.../exec
+       PLANILHA_TOKEN=sua-senha

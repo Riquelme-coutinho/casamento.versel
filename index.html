@@ -232,6 +232,8 @@
   .rsvp-card{max-width:460px;margin:40px auto 0;background:rgba(252,253,252,.05);border:1px solid rgba(188,210,234,.25);border-radius:6px;padding:34px 28px;}
   .rsvp-card label{display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;text-align:center;}
   .rsvp-input{width:100%;background:rgba(252,253,252,.08);border:1px solid rgba(188,210,234,.3);border-radius:3px;padding:15px 16px;color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:19px;text-align:center;outline:none;transition:border-color .2s,background .2s;}
+  textarea.rsvp-input{resize:vertical;min-height:92px;font-size:17px;line-height:1.5;text-align:left;}
+  #guestMsgWrap{margin-top:18px;}
   .rsvp-input::placeholder{color:rgba(252,253,252,.4);font-style:italic;}
   .rsvp-input:focus{border-color:var(--gold-light);background:rgba(252,253,252,.12);}
   .rsvp-btn{width:100%;margin-top:16px;background:transparent;border:1px solid var(--gold-light);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:.35em;text-transform:uppercase;padding:16px;cursor:pointer;border-radius:3px;transition:background .25s,color .25s;}
@@ -423,7 +425,17 @@
 .pg-add.more:hover{background:var(--olive);color:var(--cream-light);}
 .pg-add.ok{background:var(--gold);border-color:var(--gold);color:var(--ink);}
 .pg-empty{grid-column:1/-1;text-align:center;padding:40px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--sage);}
-@media(max-width:400px){.pg-body{padding:11px 9px 10px}.pg-desc{display:none}}
+.pg-free .pg-value b{font-size:clamp(22px,5vw,28px);font-style:italic;}
+.pg-free label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--camel-deep);margin-top:10px;}
+.pg-free label:first-of-type{margin-top:8px;}
+.pg-free input{width:100%;margin-top:5px;padding:9px 10px;border:1px solid rgba(169,189,174,.9);border-radius:4px;background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-size:14px;}
+.pg-free input:focus{outline:none;border-color:var(--olive);background:#fff;}
+.pg-free .pg-money{position:relative;}
+.pg-free .pg-money span{position:absolute;left:10px;top:50%;transform:translateY(-40%);font-size:13px;color:var(--sage);pointer-events:none;}
+.pg-free .pg-money input{padding-left:32px;}
+.pg-free-err{font-size:11px;line-height:1.4;color:#a5483c;margin-top:6px;min-height:0;}
+.pg-free-err:empty{display:none;}
+@media(max-width:400px){.pg-body{padding:11px 9px 10px}.pg-desc{display:none}.pg-free .pg-desc{display:-webkit-box}}
 /* botão flutuante do carrinho */
 .pg-fab{position:fixed;left:50%;bottom:18px;transform:translate(-50%,120px);z-index:950;display:flex;align-items:center;gap:12px;padding:13px 22px;border:1px solid var(--gold-light);border-radius:40px;background:var(--olive);color:var(--cream-light);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 26px rgba(37,59,48,.3);transition:transform .35s cubic-bezier(.2,.6,.2,1);white-space:nowrap;}
 .pg-fab.show{transform:translate(-50%,0);}
@@ -540,11 +552,11 @@ body.pg-lock{overflow:hidden;}
 </section>
 <!-- DRESS CODE -->
 <section id="dress"><div class="inner"><p class="sec-label reveal">com carinho</p><h2 class="sec-title reveal">Manual dos convidados</h2><div class="cards">
-<article class="card reveal"><p class="lbl">Pontualidade</p><p class="val">Esperamos você às 11h</p><p class="manual-text">Chegue com antecedência para se acomodar e acompanhar a cerimônia desde o início.</p></article>
+<article class="card reveal"><p class="lbl">Pontualidade</p><p class="val">Esperamos você às 10h</p><p class="manual-text">Chegue com antecedência para se acomodar e acompanhar a cerimônia desde o início.</p></article>
 <article class="card reveal"><p class="lbl">Cerimônia</p><p class="val">Encontro na capela</p><p class="manual-text">Ao chegar à Paróquia Nossa Senhora de Fátima, dirija-se à capela onde celebraremos nosso casamento.</p></article>
 <article class="card reveal"><p class="lbl">Presença</p><p class="val">Confirme com carinho</p><p class="manual-text">Sua confirmação é essencial para prepararmos cada detalhe e recebermos você da melhor forma.</p></article>
 <article class="card reveal"><p class="lbl">Durante a celebração</p><p class="val">Viva esse momento</p><p class="manual-text">Mantenha o celular no silencioso e compartilhe conosco a alegria desse dia.</p></article></div>
-<div class="dress-avoid reveal"><p class="dress-avoid-title">Um cuidado com as cores</p><div class="swatches"><span class="sw sw-white"></span><span class="sw" style="background:#AEC6E5"></span></div><p class="dress-avoid-text">O branco fica para a noiva e o azul serenity para as madrinhas. Agradecemos por reservar essas cores para elas.</p></div></div></section>
+<div class="dress-avoid reveal"><p class="dress-avoid-title">Um cuidado com as cores</p><div class="swatches"><span class="sw sw-white"></span><span class="sw" style="background:#AEC6E5"></span></div><p class="dress-avoid-text">O branco fica para a noiva e o azul para as madrinhas. Agradecemos por reservar essas cores para elas.</p></div></div></section>
 <!-- COUNTDOWN -->
 <section id="countdown">
 <div class="inner">
@@ -604,7 +616,7 @@ body.pg-lock{overflow:hidden;}
 </div>
 </div>
 <!-- RSVP -->
-<section id="music"><div class="inner"><p class="sec-label reveal">a trilha do nosso dia</p><h2 class="sec-title reveal">Nossa música</h2><div class="music-box reveal"><button id="musicControl" class="btn-line" type="button">Tocar música</button><p id="musicStatus" class="music-note" role="status"></p></div></div></section><section id="rsvp"><div class="inner"><p class="sec-label reveal">confirmação de presença</p><h2 class="sec-title reveal">Você vem?</h2><div class="rsvp-card reveal"><p class="rsvp-intro">Será uma alegria celebrar com você!</p><form id="rsvpForm"><label for="guestName">Seu nome completo</label><input autocomplete="off" aria-describedby="guestHelp" class="rsvp-input" id="guestName" maxlength="120" minlength="3" placeholder="Comece a digitar seu nome" required=""/><p id="guestHelp" class="rsvp-note">Digite seu nome (pelo menos o primeiro nome completo) e selecione-o quando aparecer.</p><div id="guestResults" aria-label="Convidados encontrados" hidden></div><p id="guestSelection" class="rsvp-note" role="status"></p><button class="rsvp-btn" disabled="" id="rsvpSubmit" type="submit">Confirmar presença</button></form><p class="rsvp-note" id="rsvpStatus" role="status">Selecione seu nome, confirme e toque em “Avisar aos noivos” para enviar sua confirmação pelo WhatsApp.</p><a class="wa-btn" id="waBtn" rel="noopener" target="_blank">Avisar aos noivos</a></div></div></section>
+<section id="music"><div class="inner"><p class="sec-label reveal">a trilha do nosso dia</p><h2 class="sec-title reveal">Nossa música</h2><div class="music-box reveal"><button id="musicControl" class="btn-line" type="button">Tocar música</button><p id="musicStatus" class="music-note" role="status"></p></div></div></section><section id="rsvp"><div class="inner"><p class="sec-label reveal">confirmação de presença</p><h2 class="sec-title reveal">Você vem?</h2><div class="rsvp-card reveal"><p class="rsvp-intro">Será uma alegria celebrar com você!</p><form id="rsvpForm"><label for="guestName">Seu nome completo</label><input autocomplete="off" aria-describedby="guestHelp" class="rsvp-input" id="guestName" maxlength="120" minlength="3" placeholder="Comece a digitar seu nome" required=""/><p id="guestHelp" class="rsvp-note">Digite seu nome (pelo menos o primeiro nome completo) e selecione seu convite. Convites de casal ou família são confirmados de uma vez, e as crianças já vão junto com os pais.</p><div id="guestResults" aria-label="Convidados encontrados" hidden></div><p id="guestSelection" class="rsvp-note" role="status"></p><div id="guestMsgWrap"><label for="guestMsg">Recado aos noivos (opcional)</label><textarea class="rsvp-input" id="guestMsg" maxlength="500" rows="3" placeholder="Deixe uma mensagem de carinho"></textarea></div><button class="rsvp-btn" disabled="" id="rsvpSubmit" type="submit">Confirmar presença</button></form><p class="rsvp-note" id="rsvpStatus" role="status">Selecione seu nome e toque em “Confirmar presença”.</p><a class="wa-btn" id="waBtn" rel="noopener" target="_blank">Avisar aos noivos</a></div></div></section>
 <!-- FOOTER -->
 <footer><div class="monogram monogram-image"><img src="assets/monograma.svg" alt="Monograma C e G de Carolinne e Gabriel" width="230" height="127"></div>
 <p class="footer-names fit-name" id="footerNames">Carolinne <span class="amp">&amp;</span> Gabriel</p>
@@ -624,7 +636,7 @@ body.pg-lock{overflow:hidden;}
 <div aria-hidden="true" inert style="position:fixed;left:-10000px;top:0;width:200px;height:200px;pointer-events:none;"><div id="backgroundMusic"></div></div><script>
 // Preencher quando os noivos enviarem os dados. O endpoint RSVP deve gravar
 // a presença e retornar JSON {ok:true} somente após o registro persistir.
-const CONFIG={whatsapp:'5561999399404',rsvpEndpoint:'',listaPresentes:'',dataEvento:'2027-04-10T11:00:00-03:00'};
+const CONFIG={whatsapp:'5561999399404',rsvpEndpoint:'/api/confirmar',listaPresentes:'',dataEvento:'2027-04-10T11:00:00-03:00'};
 const $=id=>document.getElementById(id);
 function openInvite(){if($('main').classList.contains('visible'))return;requestMusic();$('splash').classList.add('hide');$('main').classList.add('visible');setTimeout(()=>$('splash').style.display='none',900);const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));}
 $('splash').addEventListener('click',openInvite);$('splash').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}});
@@ -634,8 +646,8 @@ function tick(){const d=Math.max(0,new Date(CONFIG.dataEvento)-new Date());[Math
 // price em centavos (35000 = R$ 350,00). img vazio = card de valor (cartão-presente).
 // link = link de pagamento com cartão só deste item (Mercado Pago, PagSeguro…); vazio usa PRESENTES_CONFIG.cartaoLink.
 const PRESENTES_CONFIG={
- pixKey:'casamento@emaildosnoivos.com.br', // chave Pix dos noivos
- pixQr:'assets/presentes/qr_pix.png',      // imagem do QR Code Pix
+ pixKey:'8731c78c-e2a0-4633-840a-b686409808f6', // chave Pix dos noivos
+ pixQr:'assets/presentes/qr_pix.jpeg',      // imagem do QR Code Pix
  cartaoLink:''                             // link padrão de pagamento com cartão
 };
 const CATEGORIAS={lar:'Lar',cozinha:'Cozinha',viagem:'Viagem','experiência':'Experiência',presente:'Presente'};
@@ -661,11 +673,25 @@ const PRESENTES=[
 ];
 const brl=c=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(c/100);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let pgFilter='todas',cart={};
+// Card "Valor livre": o convidado escolhe o nome e o valor do presente.
+const VALOR_LIVRE={min:1000,max:5000000,nomePadrao:'Presente com carinho'}; // em centavos: mínimo R$ 10, máximo R$ 50.000
+let pgFilter='todas',cart={},custom={};
 try{cart=JSON.parse(localStorage.getItem('pgCart'))||{}}catch(e){cart={}}
-for(const id in cart)if(!PRESENTES.some(g=>g.id==id))delete cart[id];
-const saveCart=()=>{try{localStorage.setItem('pgCart',JSON.stringify(cart))}catch(e){}};
-const cartItems=()=>Object.entries(cart).map(([id,q])=>({g:PRESENTES.find(p=>p.id==id),q}));
+try{custom=JSON.parse(localStorage.getItem('pgCustom'))||{}}catch(e){custom={}}
+const findGift=id=>PRESENTES.find(g=>g.id==id)||(custom[id]&&{id,title:custom[id].title,desc:'',img:'',price:custom[id].price,cat:'presente',link:'',custom:true});
+for(const id in cart)if(!findGift(id))delete cart[id];
+for(const id in custom)if(!cart[id])delete custom[id];
+const saveCart=()=>{for(const id in custom)if(!cart[id])delete custom[id];try{localStorage.setItem('pgCart',JSON.stringify(cart));localStorage.setItem('pgCustom',JSON.stringify(custom))}catch(e){}};
+const cartItems=()=>Object.entries(cart).map(([id,q])=>({g:findGift(id),q}));
+// Aceita "150", "150,50", "1.500" e "1.500,00"; devolve centavos (ou NaN).
+function parseBRL(s){s=String(s).replace(/[R$\s]/g,'');if(/^\d+\.\d{1,2}$/.test(s))return Math.round(parseFloat(s)*100);if(!/^\d{1,3}(\.\d{3})*(,\d{1,2})?$|^\d+(,\d{1,2})?$/.test(s))return NaN;return Math.round(parseFloat(s.replace(/\./g,'').replace(',','.'))*100)}
+const freeCard=()=>`<article class="pg-card pg-free">
+<div class="pg-thumb"><div class="pg-value"><small>Valor livre</small><b>Você escolhe</b></div><span class="pg-badge">Presente</span></div>
+<form class="pg-body" id="pgFreeForm" novalidate><h3 class="pg-title">Presente do seu jeito</h3><p class="pg-desc">Dê um nome ao seu presente e escolha o valor que quiser.</p>
+<label for="pgFreeName">Nome do presente</label><input id="pgFreeName" maxlength="60" placeholder="${esc(VALOR_LIVRE.nomePadrao)}" autocomplete="off">
+<label for="pgFreeValue">Valor</label><div class="pg-money"><span>R$</span><input id="pgFreeValue" inputmode="decimal" maxlength="12" placeholder="0,00" autocomplete="off"></div>
+<p class="pg-free-err" id="pgFreeErr" role="alert"></p>
+<button type="submit" class="pg-add" id="pgFreeAdd">Adicionar</button></form></article>`;
 const cartCount=()=>cartItems().reduce((s,i)=>s+i.q,0);
 const cartTotal=()=>cartItems().reduce((s,i)=>s+i.g.price*i.q,0);
 
@@ -675,11 +701,12 @@ function renderFilters(){
 }
 function renderGifts(){
  const list=pgFilter==='todas'?PRESENTES:PRESENTES.filter(g=>g.cat===pgFilter);
- $('pgGrid').innerHTML=list.length?list.map(g=>`<article class="pg-card">
+ const free=pgFilter==='todas'||pgFilter==='presente'?freeCard():'';
+ $('pgGrid').innerHTML=free+(list.length?list.map(g=>`<article class="pg-card">
 <div class="pg-thumb">${g.img?`<img src="${esc(g.img)}" alt="${esc(g.title)}" loading="lazy">`:`<div class="pg-value"><small>Cartão presente</small><b>${brl(g.price)}</b></div>`}
 <span class="pg-badge">${CATEGORIAS[g.cat]}</span>${cart[g.id]?`<span class="pg-incart">No carrinho</span>`:''}</div>
 <div class="pg-body"><h3 class="pg-title">${esc(g.title)}</h3><p class="pg-desc">${esc(g.desc)}</p><p class="pg-price">${brl(g.price)}</p>
-<button type="button" class="pg-add${cart[g.id]?' more':''}" data-add="${g.id}">${cart[g.id]?'Adicionar mais':'Adicionar'}</button></div></article>`).join(''):'<p class="pg-empty">Nenhum presente nesta categoria ainda.</p>';
+<button type="button" class="pg-add${cart[g.id]?' more':''}" data-add="${g.id}">${cart[g.id]?'Adicionar mais':'Adicionar'}</button></div></article>`).join(''):free?'':'<p class="pg-empty">Nenhum presente nesta categoria ainda.</p>');
 }
 function renderCart(){
  const items=cartItems(),n=cartCount(),t=cartTotal();
@@ -708,6 +735,20 @@ function closePay(){$('pgPay').hidden=true;lock()}
 
 $('pgFilters').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;pgFilter=b.dataset.f;renderFilters();renderGifts()});
 $('pgGrid').addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(!b)return;const id=b.dataset.add;cart[id]=(cart[id]||0)+1;saveCart();pgRender();const nb=$('pgGrid').querySelector(`[data-add="${id}"]`);if(nb){nb.classList.add('ok');nb.textContent='Adicionado!';setTimeout(()=>{if(nb.isConnected){nb.classList.remove('ok');nb.textContent='Adicionar mais'}},1400)}});
+$('pgGrid').addEventListener('submit',e=>{
+ if(e.target.id!=='pgFreeForm')return;e.preventDefault();
+ const title=$('pgFreeName').value.trim().replace(/\s+/g,' ')||VALOR_LIVRE.nomePadrao,price=parseBRL($('pgFreeValue').value);
+ const err=msg=>{$('pgFreeErr').textContent=msg;$('pgFreeValue').focus()};
+ if(!price)return err('Digite o valor do presente, por exemplo 150 ou 150,00.');
+ if(price<VALOR_LIVRE.min)return err('O valor mínimo é '+brl(VALOR_LIVRE.min)+'.');
+ if(price>VALOR_LIVRE.max)return err('O valor máximo é '+brl(VALOR_LIVRE.max)+'.');
+ // Mesmo nome e valor já no carrinho: só aumenta a quantidade.
+ let id=Object.keys(custom).find(k=>custom[k].title===title&&custom[k].price===price);
+ if(!id){id='c'+Date.now().toString(36);custom[id]={title,price}}
+ cart[id]=(cart[id]||0)+1;saveCart();pgRender();
+ const b=$('pgFreeAdd');if(b){b.classList.add('ok');b.textContent='Adicionado!';setTimeout(()=>{if(b.isConnected){b.classList.remove('ok');b.textContent='Adicionar'}},1400)}
+});
+$('pgGrid').addEventListener('input',e=>{if(e.target.id==='pgFreeValue'||e.target.id==='pgFreeName')$('pgFreeErr').textContent=''});
 $('pgItems').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;if(d.inc)cart[d.inc]++;else if(d.dec){if(--cart[d.dec]<1)delete cart[d.dec]}else if(d.rm)delete cart[d.rm];else return;saveCart();pgRender()});
 $('pgFab').addEventListener('click',openDrawer);
 $('pgDrawer').addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeDrawer()});
@@ -725,23 +766,33 @@ $('rsvpForm').addEventListener('submit',async e=>{
  $('rsvpSubmit').disabled=true;$('guestName').disabled=true;$('guestResults').hidden=true;$('waBtn').style.display='none';
  try{
   if(CONFIG.rsvpEndpoint){
-   const res=await fetch(CONFIG.rsvpEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({convidadoId:guest.id,nome:name,presenca:true})});
-   if(!res.ok)throw Error();const data=await res.json();if(data.ok!==true)throw Error();
-   $('rsvpStatus').textContent='Presença registrada! Toque abaixo para avisar aos noivos.';
+   const res=await fetch(CONFIG.rsvpEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({convidadoId:guest.id,mensagem:$('guestMsg').value.trim()})});
+   const data=await res.json().catch(()=>({}));
+   if(data.motivo==='ja_confirmado'){selectedGuest=null;$('guestName').value='';$('guestSelection').textContent='';$('rsvpStatus').textContent='Este convite já foi confirmado. Obrigado pelo carinho!';return}
+   if(!res.ok||data.ok!==true)throw Error();
+   selectedGuest=null;$('guestSelection').textContent='';$('guestMsg').value='';
+   $('rsvpStatus').textContent='Presença confirmada, '+name+'! Obrigado. Se quiser, avise também aos noivos pelo WhatsApp.';
   }else{
    $('rsvpStatus').textContent='Tudo pronto, '+name+'! Toque em “Avisar aos noivos” e envie a mensagem no WhatsApp para concluir sua confirmação.';
   }
-  $('waBtn').href='https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Olá, Carolinne e Gabriel! Sou '+name+' e confirmo minha presença no casamento de vocês, em 10/04/2027. Será uma alegria celebrar com vocês!');
+  $('waBtn').href='https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(rsvpMessage(guest));
   $('waBtn').style.display='inline-flex';$('waBtn').focus();
  }catch(err){$('rsvpStatus').textContent='Não foi possível registrar sua presença. Tente novamente.'}
  finally{$('guestName').disabled=false;$('rsvpSubmit').disabled=!selectedGuest}
 });
 
 let selectedGuest=null;
+// Convite individual: "Sou ... e confirmo". Casal/família: "Somos ... e confirmamos". Crianças vão junto com os pais.
+const joinNames=l=>l.length<2?(l[0]||''):l.slice(0,-1).join(', ')+' e '+l[l.length-1];
+function rsvpMessage(g){
+ const kids=g.criancas||[],plural=(g.adultos||1)>1;
+ const kidsTxt=kids.length?(kids.length>1?', junto com as crianças ':', junto com a criança ')+joinNames(kids)+',':'';
+ return 'Olá, Carolinne e Gabriel! '+(plural?'Somos '+g.nome+' e confirmamos nossa presença':'Sou '+g.nome+' e confirmo minha presença')+kidsTxt+' no casamento de vocês, em 10/04/2027. Será uma alegria celebrar com vocês!';
+}
 const normalizeName=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/\s+/g,' ');
 const canSend=()=>/^55\d{10,11}$/.test(CONFIG.whatsapp);
 function showGuests(){
- selectedGuest=null;$('guestSelection').textContent='';$('waBtn').style.display='none';$('rsvpStatus').textContent='Selecione seu nome e envie sua confirmação aos noivos pelo WhatsApp.';
+ selectedGuest=null;$('guestSelection').textContent='';$('waBtn').style.display='none';$('rsvpStatus').textContent='Selecione seu nome e toque em “Confirmar presença”.';
  $('rsvpSubmit').disabled=true;
  const term=normalizeName($('guestName').value),box=$('guestResults');box.replaceChildren();box.hidden=true;
  clearTimeout(guestTimer);if(guestAbort)guestAbort.abort();if(term.length<3)return;
@@ -751,11 +802,12 @@ function showGuests(){
 let guestTimer=null,guestAbort=null;
 async function searchGuests(term,box){
  guestAbort=new AbortController();let matches;
- try{const res=await fetch('/api/convidados?nome='+encodeURIComponent(term),{signal:guestAbort.signal});if(!res.ok)throw Error();matches=(await res.json()).convidados}
+ let alreadyDone=0;
+ try{const res=await fetch('/api/convidados?nome='+encodeURIComponent(term),{signal:guestAbort.signal});if(!res.ok)throw Error();const data=await res.json();matches=data.convidados;alreadyDone=data.jaConfirmados||0}
  catch(err){if(err.name==='AbortError')return;const p=document.createElement('p');p.className='guest-empty';p.textContent='Não foi possível buscar seu nome agora. Tente novamente em instantes.';box.replaceChildren(p);box.hidden=false;return}
  box.replaceChildren();box.hidden=false;
- if(!matches.length){const p=document.createElement('p');p.className='guest-empty';p.textContent='Não encontramos esse nome. Digite seu primeiro nome completo, sem abreviar.';box.append(p);return}
- for(const g of matches){const b=document.createElement('button');b.type='button';b.className='guest-option';const title=document.createElement('strong');title.textContent=g.nome;const detail=document.createElement('small');detail.textContent=g.detalhe!==g.nome?g.detalhe:'';b.append(title,detail);b.addEventListener('click',()=>{selectedGuest=g;$('guestName').value=g.nome;box.hidden=true;$('guestSelection').textContent='Convidado selecionado: '+g.nome+'.';$('rsvpSubmit').disabled=!canSend();});box.append(b)}
+ if(!matches.length){const p=document.createElement('p');p.className='guest-empty';p.textContent=alreadyDone?'Este convite já foi confirmado. Obrigado pelo carinho!':'Não encontramos esse nome. Digite seu primeiro nome completo, sem abreviar.';box.append(p);return}
+ for(const g of matches){const b=document.createElement('button');b.type='button';b.className='guest-option';const title=document.createElement('strong');title.textContent=g.nome;const detail=document.createElement('small');detail.textContent=g.detalhe!==g.nome?g.detalhe:'';b.append(title,detail);b.addEventListener('click',()=>{selectedGuest=g;$('guestName').value=g.nome;box.hidden=true;$('guestSelection').textContent='Convite selecionado: '+g.nome+(g.criancas&&g.criancas.length?' (com '+joinNames(g.criancas)+')':'')+'.';$('rsvpSubmit').disabled=!canSend();});box.append(b)}
 }
 $('guestName').addEventListener('input',showGuests);
 $('guestName').addEventListener('keydown',e=>{if(e.key==='Escape')$('guestResults').hidden=true;if(e.key==='ArrowDown'&&!$('guestResults').hidden){e.preventDefault();$('guestResults').querySelector('button')?.focus()}});
